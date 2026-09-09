@@ -1,0 +1,10 @@
+{
+  "components": [
+    {"name": "routerctl", "root": "routerctl"},
+    {"name": "firmware", "root": "router-firmware"},
+    {"name": "platform", "root": "router-platform"},
+    {"name": "packages", "root": "router-packages"},
+    {"name": "upstream", "root": "router-upstream"},
+    {"name": "infra", "root": "router-infra"}
+  ]
+}

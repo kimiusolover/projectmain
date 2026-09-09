@@ -1,0 +1,19 @@
+# Independent repositories: each keeps its own Git history.
+/certificateDB/
+/router-firmware/
+/router-infra/
+/router-packages/
+/router-platform/
+/router-upstream/
+/routerctl/
+
+# Downloaded source archives are identified by locks in router-upstream.
+/router-source-cache/
+
+# Local scratch notes.
+/tmp.md
+
+# Track only portable routerctl workspace configuration.
+/.routerctl/*
+!/.routerctl/components.json
+!/.routerctl/workspace.json
