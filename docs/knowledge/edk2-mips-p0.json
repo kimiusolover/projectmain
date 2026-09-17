@@ -1,0 +1,108 @@
+{
+  "record_type": "routeros.edk2-mips-p0-decision/v1",
+  "status": "design-fixed-elf-probe-verified",
+  "date": "2026-09-18",
+  "scope": "host-only MIPS port research; not an accepted source-lock record or board build profile",
+  "edk2": {
+    "repository": "https://github.com/tianocore/edk2",
+    "tag_label": "edk2-stable202608",
+    "commit": "2970e5699ba6267f3384ffab20f96647578aebc8",
+    "tree": "81246904188186c97db1b2639850765615c7ec47",
+    "gitlinks": {
+      "BaseTools/Source/C/BrotliCompress/brotli": "e230f474b87134e8c6c85b630084c612057f253e",
+      "CryptoPkg/Library/MbedTlsLib/mbedtls": "0bebf8b8c7f07abe3571ded48a11aa907a1ffb20",
+      "CryptoPkg/Library/OpensslLib/openssl": "8cf17aaeb4599f8af87fefd810b5b5fee90fe69e",
+      "MdeModulePkg/Library/BrotliCustomDecompressLib/brotli": "e230f474b87134e8c6c85b630084c612057f253e",
+      "MdeModulePkg/Universal/RegularExpressionDxe/oniguruma": "4ef89209a239c1aea328cf13c05a2807e5c146d1",
+      "MdePkg/Library/BaseFdtLib/libfdt": "cfff805481bdea27f900c32698171286542b8d3c",
+      "MdePkg/Library/MipiSysTLib/mipisyst": "370b5944c046bab043dd8b133727b2135af7747a",
+      "RedfishPkg/Library/JsonLib/jansson": "e9ebfa7e77a6bee77df44e096b100e7131044059",
+      "SecurityPkg/DeviceSecurity/SpdmLib/libspdm": "f55cf6d48ec69b4ac60a63903e9c6a2cb0fd155d",
+      "TcgTpmPkg/Library/TpmLib/TPM": "bc29a21d44b01396223c152a4834e52318591770",
+      "UnitTestFrameworkPkg/Library/CmockaLib/cmocka": "1cc9cde3448cdd2e000886a26acf1caac2db7cf1",
+      "UnitTestFrameworkPkg/Library/GoogleTestLib/googletest": "86add13493e5c881d7e4ba77fb91c1f57752b3a4",
+      "UnitTestFrameworkPkg/Library/SubhookLib/subhook": "83d4e1ebef3588fae48b69a7352cc21801cb70bc"
+    },
+    "archive_lock_status": "not-created",
+    "downstream_patchset_status": "not-implemented"
+  },
+  "toolchain": {
+    "existing_profile": "router-upstream/toolchains/mipsel-24kc-musl.yaml",
+    "existing_source_lock": "router-upstream/sources/openwrt-25.12.5-ramips-mt7621-toolchain.yaml",
+    "archive": "openwrt-toolchain-25.12.5-ramips-mt7621_gcc-14.3.0_musl.Linux-x86_64.tar.zst",
+    "sha256": "04316e081dcaea0394d3a8eca761500c91d7d54e9d49ccb8f855ae257ea4f995",
+    "gcc": "14.3.0",
+    "binutils": "2.44",
+    "compiler_prefix": "mipsel-openwrt-linux-musl-",
+    "firmware_libc": "none",
+    "archive_bytes_verified": true,
+    "upstream_signature_verified_this_run": false
+  },
+  "abi": {
+    "isa": "mips32r2",
+    "tune": "1004kc",
+    "endian": "little",
+    "abi": "o32",
+    "pointer_bits": 32,
+    "uintn_bits": 32,
+    "char16_bits": 16,
+    "stack_alignment_min_bytes": 8,
+    "floating_point": "soft",
+    "abicalls": false,
+    "pic": false,
+    "small_data_threshold": 0,
+    "efiapi": "native o32 calling convention; no special attribute",
+    "probe_cflags": [
+      "-EL",
+      "-march=mips32r2",
+      "-mtune=1004kc",
+      "-mabi=32",
+      "-msoft-float",
+      "-mno-abicalls",
+      "-fno-pic",
+      "-fno-pie",
+      "-G0",
+      "-mno-mips16",
+      "-mno-micromips",
+      "-ffreestanding",
+      "-fshort-wchar",
+      "-fno-stack-protector",
+      "-fno-asynchronous-unwind-tables",
+      "-fno-unwind-tables",
+      "-O2"
+    ]
+  },
+  "formats": {
+    "intermediate": "ELF32 little-endian EM_MIPS; ET_REL then ET_EXEC with --emit-relocs",
+    "ram_entry": "ELF32 ET_EXEC; board-specific entry/load addresses remain unassigned",
+    "dxe": "PE32 little-endian; Magic=0x10b; Machine=0x0166; project MIPS convention, not a claim of UEFI-standard MIPS binding",
+    "efi_application_subsystem": 10,
+    "efi_boot_service_driver_subsystem": 11,
+    "te": "excluded in initial port",
+    "pe_conversion": "not-implemented",
+    "pe_runtime_relocation": "not-tested"
+  },
+  "evidence": {
+    "pdf_sha256": "1713012937102a9ec6d0fe1fe555d43437b1f2fd9ec60e2b4b0dca5b49851425",
+    "pdf_page": 2,
+    "pdf_scope": "MT7621 preliminary SoC datasheet, not AX23V board evidence",
+    "probe_compile": true,
+    "probe_elf_link": true,
+    "probe_runtime": false,
+    "probe_address": "0x01000000 is a host link fixture only, never a board load-address decision",
+    "probe_source_sha256": "c19f48bfad3039a42b3e98ea6f6055722daedc5fe4821b0f877079ba59fb6f5e"
+  },
+  "not_authorized_by_record": [
+    "AX23V target promotion",
+    "firmware image assembly",
+    "flash",
+    "RF"
+  ],
+  "pending": [
+    "EDK II source archive and required submodule archive locks",
+    "host build-environment lock for complete EDK II build",
+    "MIPS BaseTools and ProcessorBind port",
+    "PE converter and paired HI16/LO16 relocation design",
+    "DXE boot and ABI runtime tests"
+  ]
+}
