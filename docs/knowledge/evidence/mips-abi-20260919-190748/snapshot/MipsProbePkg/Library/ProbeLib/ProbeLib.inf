@@ -1,0 +1,15 @@
+[Defines]
+  INF_VERSION    = 0x00010005
+  BASE_NAME      = MipsProbeLib
+  FILE_GUID      = 8d695053-b464-4a44-8a19-225c7852e524
+  MODULE_TYPE    = BASE
+  VERSION_STRING = 0.1
+  LIBRARY_CLASS  = NULL
+
+[Sources]
+  Probe.c
+  AbiFunctions.c
+  AbiChecks.c
+
+[Packages]
+  MdePkg/MdePkg.dec

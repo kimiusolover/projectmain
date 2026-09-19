@@ -1,0 +1,33 @@
+{
+  "head": "debbfa2ede69e231b9199cce1de7657049e0873c",
+  "verification_exit": 0,
+  "scope": "EDK II minimal static library and Linux user-mode ABI probes",
+  "sha256": {
+    "README.md": "9b4bad3ccd65d5040df3971bfe29cd69fa0de7c78631439570a9d8cb5734d74e",
+    "add-start.S": "73c4f3a2ee9d6d7ba145ea3a802cae4b976afa89044bc12110613580813ca248",
+    "git-status.txt": "ef1eab60eab1f5bc8ef7b56405f86e9ad5c5f81f62344c9d1066c0d7127a5583",
+    "memcpy.c": "130ff79d144ef286b07dd579835293c792157eebf118fd6b77357321e8a1ab60",
+    "port.patch": "80c10c1c08129ffe11eb975d37b158c4a238c9e4643e8a39e41c61fea7108002",
+    "qemu-mipsel": "91bfbd8aad0285b10874d29207f7cfaf16d3258c38b1bc3743ea6f1153deec1b",
+    "replay.sh": "6f81627cf70268d6d7bb5f180e4beabd8e1b69e5db6d0e86daef310b6848c601",
+    "results/MipsProbeLib.lib": "33a04e6a9f57aedddec491e9e616085abed705b270b6b773c0dd8d8544ae3e8d",
+    "results/abi-readelf.txt": "a30ddda919b6f1b279eff606cbd5b18b533d605b622727bc8c308e965757a8c0",
+    "results/abi.elf": "79d0785ba65b67a58725e5996b3c1eba9143afd4f21f4dac0f4529eca43216e2",
+    "results/add-readelf.txt": "1300041441a70d4d9abdfa38a5b39a7da86526b4f15d1ec14b10a51093d24ff1",
+    "results/add.elf": "d354c69f795821797b067384ee34dcbdb70dd78ac91b40a29a57b831b6516076",
+    "snapshot/BaseTools/Conf/tools_def.template": "baec9a02720401749ba323f5b7efff7bc5fcf577e11de91f6cd33fd7f54fa0f8",
+    "snapshot/BaseTools/Source/Python/Common/DataType.py": "d0a51430029cba2499df9f413f5b46d97bf9de80ec635af84ecf4306ddd2611f",
+    "snapshot/Conf/build_rule.txt": "cc39f959d5ee252de8bf0e60c41330a8cc7f08ab7ebfae6bbdbf0989ecc109df",
+    "snapshot/Conf/tools_def.txt": "baec9a02720401749ba323f5b7efff7bc5fcf577e11de91f6cd33fd7f54fa0f8",
+    "snapshot/MdePkg/Include/Mips/ProcessorBind.h": "1ed0098793704cca7ccd668b146d4830e6c3391e60cc2913ab31aeb9cfb23224",
+    "snapshot/MdePkg/MdePkg.dec": "23363316c0ab6d4b7fe771a80008621f83af36d858bc2584f37a46237970a26b",
+    "snapshot/MipsProbePkg/Library/ProbeLib/AbiChecks.c": "87a3b0705ff2932acff529463f083d5bf00e5d5eaff77b2ae703b286eb078172",
+    "snapshot/MipsProbePkg/Library/ProbeLib/AbiFunctions.c": "7e4f1d8833a9197e369fbb12588d1890ccce9e9aea9a8b17fd355b7a29a02107",
+    "snapshot/MipsProbePkg/Library/ProbeLib/Probe.c": "6ee75e5e3c3c75327d731f69ac588e9eab1474208785befffbc6730c61728161",
+    "snapshot/MipsProbePkg/Library/ProbeLib/ProbeLib.inf": "5b3f67b04ad000be3e83d74989dd41e8baa77929a3826d4965d372f9cce20bb9",
+    "snapshot/MipsProbePkg/MipsProbe.dsc": "c0673e169524424406c032c1b4bc984d98e7e6a9808198752090cc1fbb28f347",
+    "start.S": "f2df8b9df7f7956dfdde1f2f06c4b76a08dd1e3113024a5c907af8014b4f3bbf",
+    "submodules.txt": "3bebc941a64457d7018ac48af7ac03e83bb06104aa880ec95eaaded5ae4a51f6",
+    "verification.log": "aba398d827be096530b5d278c9c0ef02fdd3ba69585b14b8006272ccc8f0bf9c"
+  }
+}

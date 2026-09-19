@@ -1,0 +1,65 @@
+diff --git a/BaseTools/Conf/tools_def.template b/BaseTools/Conf/tools_def.template
+index 72ca0df..5ae1d18 100644
+--- a/BaseTools/Conf/tools_def.template
++++ b/BaseTools/Conf/tools_def.template
+@@ -1591,3 +1591,21 @@ RELEASE_XCODE5_X64_CC_FLAGS   = -target x86_64-pc-win32-macho -c    -Os       -W
+ # Build rule order
+ #################
+ *_*_*_*_BUILDRULEORDER = nasm asm Asm ASM S s nasmb asm16
++
++
++################################################################################
++# MIPS o32 bring-up: compilation and static library only
++################################################################################
++
++DEFINE GCC_MIPS_ABI_FLAGS = -EL -march=mips32r2 -mabi=32 -msoft-float -mno-abicalls -fno-pic -fno-pie -G0 -mno-mips16 -mno-micromips
++
++*_GCC_MIPS_CC_PATH    = ENV(GCC_MIPS_PREFIX)gcc
++*_GCC_MIPS_ASM_PATH   = ENV(GCC_MIPS_PREFIX)gcc
++*_GCC_MIPS_PP_PATH    = ENV(GCC_MIPS_PREFIX)gcc
++*_GCC_MIPS_SLINK_PATH = ENV(GCC_MIPS_PREFIX)ar
++
++*_GCC_MIPS_CC_FLAGS = DEF(GCC_MIPS_ABI_FLAGS) -g -O0 -ffreestanding -fshort-wchar -fno-short-enums -fno-builtin -fno-strict-aliasing -fno-common -fno-stack-protector -fno-asynchronous-unwind-tables -fno-unwind-tables -Wall -Werror -include AutoGen.h
++
++*_GCC_MIPS_ASM_FLAGS = DEF(GCC_MIPS_ABI_FLAGS) -x assembler-with-cpp -g
++*_GCC_MIPS_PP_FLAGS  = DEF(GCC_MIPS_ABI_FLAGS) -E -x assembler-with-cpp
++*_GCC_MIPS_SLINK_FLAGS =
+diff --git a/BaseTools/Source/Python/Common/DataType.py b/BaseTools/Source/Python/Common/DataType.py
+index 4f381d8..7b48217 100644
+--- a/BaseTools/Source/Python/Common/DataType.py
++++ b/BaseTools/Source/Python/Common/DataType.py
+@@ -54,8 +54,18 @@ TAB_ARCH_EBC = 'EBC'
+ TAB_ARCH_AARCH64 = 'AARCH64'
+ TAB_ARCH_RISCV64 = 'RISCV64'
+ TAB_ARCH_LOONGARCH64 = 'LOONGARCH64'
+-
+-ARCH_SET_FULL = {TAB_ARCH_IA32, TAB_ARCH_X64, TAB_ARCH_EBC, TAB_ARCH_AARCH64, TAB_ARCH_RISCV64, TAB_ARCH_LOONGARCH64, TAB_ARCH_COMMON}
++TAB_ARCH_MIPS = 'MIPS'
++
++ARCH_SET_FULL = {
++    TAB_ARCH_IA32,
++    TAB_ARCH_X64,
++    TAB_ARCH_EBC,
++    TAB_ARCH_AARCH64,
++    TAB_ARCH_RISCV64,
++    TAB_ARCH_LOONGARCH64,
++    TAB_ARCH_MIPS,
++    TAB_ARCH_COMMON,
++}
+ 
+ SUP_MODULE_BASE = 'BASE'
+ SUP_MODULE_SEC = 'SEC'
+diff --git a/MdePkg/MdePkg.dec b/MdePkg/MdePkg.dec
+index 92e6f98..e18c119 100644
+--- a/MdePkg/MdePkg.dec
++++ b/MdePkg/MdePkg.dec
+@@ -50,6 +50,9 @@
+ [Includes.LOONGARCH64]
+   Include/LoongArch64
+ 
++[Includes.MIPS]
++  Include/Mips
++
+ [LibraryClasses]
+   ##  @libraryclass  Provides most usb APIs to support the Hid requests defined in Usb Hid 1.1 spec
+   #                  and the standard requests defined in Usb 1.1 spec.

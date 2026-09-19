@@ -1,0 +1,86 @@
+Loading previous configuration from /home/nakan/projectmain/edk2-mips-p0-shallow/Conf/BuildEnv.sh
+WORKSPACE: /home/nakan/projectmain/edk2-mips-p0-shallow
+EDK_TOOLS_PATH: /home/nakan/projectmain/edk2-mips-p0-shallow/BaseTools
+CONF_PATH: /home/nakan/projectmain/edk2-mips-p0-shallow/Conf
+Build environment: Linux-7.2.6-arch2-1-x86_64-with-glibc2.44
+SOURCE_DATE_EPOCH not set - using 1789812469
+Build start time: 19:07:49, Sep.19 2026
+
+WORKSPACE        = /home/nakan/projectmain/edk2-mips-p0-shallow
+EDK_TOOLS_PATH   = /home/nakan/projectmain/edk2-mips-p0-shallow/BaseTools
+CONF_PATH        = /home/nakan/projectmain/edk2-mips-p0-shallow/Conf
+PYTHON_COMMAND   = python3
+
+Processing meta-data 
+.
+Architecture(s)  = MIPS
+Build target     = DEBUG
+Toolchain        = GCC
+
+Active Platform          = /home/nakan/projectmain/edk2-mips-p0-shallow/MipsProbePkg/MipsProbe.dsc
+Active Module            = /home/nakan/projectmain/edk2-mips-p0-shallow/MipsProbePkg/Library/ProbeLib/ProbeLib.inf
+ done!
+Building ... /home/nakan/projectmain/edk2-mips-p0-shallow/MipsProbePkg/Library/ProbeLib/ProbeLib.inf [MIPS]
+rm -r -f /home/nakan/projectmain/edk2-mips-p0-shallow/Build/MipsProbe/DEBUG_GCC/MIPS/MipsProbePkg/Library/ProbeLib/ProbeLib/OUTPUT
+rm -f AutoGenTimeStamp
+
+- Done -
+Build end time: 19:07:49, Sep.19 2026
+Build total time: 00:00:00
+
+Build environment: Linux-7.2.6-arch2-1-x86_64-with-glibc2.44
+SOURCE_DATE_EPOCH not set - using 1789812469
+Build start time: 19:07:49, Sep.19 2026
+
+WORKSPACE        = /home/nakan/projectmain/edk2-mips-p0-shallow
+EDK_TOOLS_PATH   = /home/nakan/projectmain/edk2-mips-p0-shallow/BaseTools
+CONF_PATH        = /home/nakan/projectmain/edk2-mips-p0-shallow/Conf
+PYTHON_COMMAND   = python3
+
+Processing meta-data .
+
+Architecture(s)  = MIPS
+Build target     = DEBUG
+Toolchain        = GCC
+
+Active Platform          = /home/nakan/projectmain/edk2-mips-p0-shallow/MipsProbePkg/MipsProbe.dsc
+Active Module            = /home/nakan/projectmain/edk2-mips-p0-shallow/MipsProbePkg/Library/ProbeLib/ProbeLib.inf
+ done!
+Generating code . done!
+Generating makefile . done!
+Building ... /home/nakan/projectmain/edk2-mips-p0-shallow/MipsProbePkg/Library/ProbeLib/ProbeLib.inf [MIPS]
+"/home/nakan/toolchains/openwrt-toolchain-25.12.5-ramips-mt7621_gcc-14.3.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-14.3.0_musl/bin/mipsel-openwrt-linux-musl-gcc" -MMD -MF /home/nakan/projectmain/edk2-mips-p0-shallow/Build/MipsProbe/DEBUG_GCC/MIPS/MipsProbePkg/Library/ProbeLib/ProbeLib/OUTPUT/AbiChecks.obj.deps -EL -march=mips32r2 -mabi=32 -msoft-float -mno-abicalls -fno-pic -fno-pie -G0 -mno-mips16 -mno-micromips -g -O0 -ffreestanding -fshort-wchar -fno-short-enums -fno-builtin -fno-strict-aliasing -fno-common -fno-stack-protector -fno-asynchronous-unwind-tables -fno-unwind-tables -Wall -Werror -include AutoGen.h -c -o /home/nakan/projectmain/edk2-mips-p0-shallow/Build/MipsProbe/DEBUG_GCC/MIPS/MipsProbePkg/Library/ProbeLib/ProbeLib/OUTPUT/./AbiChecks.obj -I/home/nakan/projectmain/edk2-mips-p0-shallow/MipsProbePkg/Library/ProbeLib -I/home/nakan/projectmain/edk2-mips-p0-shallow/Build/MipsProbe/DEBUG_GCC/MIPS/MipsProbePkg/Library/ProbeLib/ProbeLib/DEBUG -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg/Include -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg/Test/UnitTest/Include -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg/Test/Mock/Include -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg/Library/MipiSysTLib/mipisyst/library/include -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg/Include/Mips /home/nakan/projectmain/edk2-mips-p0-shallow/MipsProbePkg/Library/ProbeLib/AbiChecks.c
+"/home/nakan/toolchains/openwrt-toolchain-25.12.5-ramips-mt7621_gcc-14.3.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-14.3.0_musl/bin/mipsel-openwrt-linux-musl-gcc" -MMD -MF /home/nakan/projectmain/edk2-mips-p0-shallow/Build/MipsProbe/DEBUG_GCC/MIPS/MipsProbePkg/Library/ProbeLib/ProbeLib/OUTPUT/AbiFunctions.obj.deps -EL -march=mips32r2 -mabi=32 -msoft-float -mno-abicalls -fno-pic -fno-pie -G0 -mno-mips16 -mno-micromips -g -O0 -ffreestanding -fshort-wchar -fno-short-enums -fno-builtin -fno-strict-aliasing -fno-common -fno-stack-protector -fno-asynchronous-unwind-tables -fno-unwind-tables -Wall -Werror -include AutoGen.h -c -o /home/nakan/projectmain/edk2-mips-p0-shallow/Build/MipsProbe/DEBUG_GCC/MIPS/MipsProbePkg/Library/ProbeLib/ProbeLib/OUTPUT/./AbiFunctions.obj -I/home/nakan/projectmain/edk2-mips-p0-shallow/MipsProbePkg/Library/ProbeLib -I/home/nakan/projectmain/edk2-mips-p0-shallow/Build/MipsProbe/DEBUG_GCC/MIPS/MipsProbePkg/Library/ProbeLib/ProbeLib/DEBUG -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg/Include -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg/Test/UnitTest/Include -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg/Test/Mock/Include -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg/Library/MipiSysTLib/mipisyst/library/include -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg/Include/Mips /home/nakan/projectmain/edk2-mips-p0-shallow/MipsProbePkg/Library/ProbeLib/AbiFunctions.c
+"/home/nakan/toolchains/openwrt-toolchain-25.12.5-ramips-mt7621_gcc-14.3.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-14.3.0_musl/bin/mipsel-openwrt-linux-musl-gcc" -MMD -MF /home/nakan/projectmain/edk2-mips-p0-shallow/Build/MipsProbe/DEBUG_GCC/MIPS/MipsProbePkg/Library/ProbeLib/ProbeLib/OUTPUT/Probe.obj.deps -EL -march=mips32r2 -mabi=32 -msoft-float -mno-abicalls -fno-pic -fno-pie -G0 -mno-mips16 -mno-micromips -g -O0 -ffreestanding -fshort-wchar -fno-short-enums -fno-builtin -fno-strict-aliasing -fno-common -fno-stack-protector -fno-asynchronous-unwind-tables -fno-unwind-tables -Wall -Werror -include AutoGen.h -c -o /home/nakan/projectmain/edk2-mips-p0-shallow/Build/MipsProbe/DEBUG_GCC/MIPS/MipsProbePkg/Library/ProbeLib/ProbeLib/OUTPUT/./Probe.obj -I/home/nakan/projectmain/edk2-mips-p0-shallow/MipsProbePkg/Library/ProbeLib -I/home/nakan/projectmain/edk2-mips-p0-shallow/Build/MipsProbe/DEBUG_GCC/MIPS/MipsProbePkg/Library/ProbeLib/ProbeLib/DEBUG -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg/Include -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg/Test/UnitTest/Include -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg/Test/Mock/Include -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg/Library/MipiSysTLib/mipisyst/library/include -I/home/nakan/projectmain/edk2-mips-p0-shallow/MdePkg/Include/Mips /home/nakan/projectmain/edk2-mips-p0-shallow/MipsProbePkg/Library/ProbeLib/Probe.c
+rm -f /home/nakan/projectmain/edk2-mips-p0-shallow/Build/MipsProbe/DEBUG_GCC/MIPS/MipsProbePkg/Library/ProbeLib/ProbeLib/OUTPUT/MipsProbeLib.lib
+"/home/nakan/toolchains/openwrt-toolchain-25.12.5-ramips-mt7621_gcc-14.3.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-14.3.0_musl/bin/mipsel-openwrt-linux-musl-ar" cr /home/nakan/projectmain/edk2-mips-p0-shallow/Build/MipsProbe/DEBUG_GCC/MIPS/MipsProbePkg/Library/ProbeLib/ProbeLib/OUTPUT/MipsProbeLib.lib  @/home/nakan/projectmain/edk2-mips-p0-shallow/Build/MipsProbe/DEBUG_GCC/MIPS/MipsProbePkg/Library/ProbeLib/ProbeLib/OUTPUT/object_files.lst
+
+- Done -
+Build end time: 19:07:50, Sep.19 2026
+Build total time: 00:00:01
+
+mipsel-openwrt-linux-musl-gcc.bin (OpenWrt GCC 14.3.0 r33051-f5dae5ece4) 14.3.0
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+qemu-mipsel version 11.1.1
+Copyright (c) 2003-2026 Fabrice Bellard and the QEMU Project developers
+90716 exit(0)
+abi runtime PASS (exit 0)
+90729 exit(0)
+add runtime PASS (exit 0)
+Probe.obj
+AbiFunctions.obj
+AbiChecks.obj
+
+Probe.obj:
+00000000 T ProbeAdd
+
+AbiFunctions.obj:
+00000000 T AbiAdd64
+00000174 T AbiTransform
+00000078 T AbiVarArgs
+
+AbiChecks.obj:
+00000000 T AbiRunChecks

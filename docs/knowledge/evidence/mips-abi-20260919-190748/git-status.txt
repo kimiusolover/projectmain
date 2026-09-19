@@ -1,0 +1,7 @@
+ M BaseTools/Conf/tools_def.template
+ M BaseTools/Source/C/BrotliCompress/brotli
+ M BaseTools/Source/Python/Common/DataType.py
+ M MdePkg/MdePkg.dec
+?? -.o
+?? MdePkg/Include/Mips/
+?? MipsProbePkg/
