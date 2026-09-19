@@ -1,0 +1,26 @@
+{
+  "head": "debbfa2ede69e231b9199cce1de7657049e0873c",
+  "verification_exit": 0,
+  "scope": "exact ELF fixture conversion and Linux user-mode PE execution; not UEFI boot",
+  "sha256": {
+    "README.md": "9a6305ce5e7e85f6f85e04bbae74906ced7a81fea2f4a75bea7261f4f0a80a14",
+    "accepted.elf": "e1d37efb3ed7319c4804f1a2f2b4ea775241e8f04bea0ec0790f5f28d809d9b8",
+    "genfw.patch": "6b9d172006075ef21bebc1280e8c179cf3a743de3111dc41efd32b0558541ddc",
+    "git-status.txt": "9bda48cd3718a4e3ef11cb0e74d335452d68c9b67f0d7a4ab603477d7517bd19",
+    "loader.c": "3c5f7e511ba3b8e51fabf9751767b30a80563ec326a7b0fd8e8c4491355af545",
+    "minimal.S": "1efd5831fadf122cd4048b4589c233f66f36920bffbbdf25e54ec74ed325935f",
+    "observed.efi": "52bc79bced289118c212f1eef690a079cbf189dcfcc62af53869316295a43b08",
+    "original.elf": "d7e62965369cf399f67a1a9fdd84a80ee53474214d0c09f16b766ab60c5a4ce8",
+    "prepare-fixture-gate.py": "9332bd18a6cf5a95e5db70586d22608e83eefefdc8fc4fe910544b26eefb678b",
+    "qemu-mipsel": "91bfbd8aad0285b10874d29207f7cfaf16d3258c38b1bc3743ea6f1153deec1b",
+    "replay.py": "f18c7caa83b732e2061e6d07635009a8e06fd160414b53aa22589b328adaa5d2",
+    "results/loader": "69765293a742c950c8d8da77809599c5c3a0c35acba34a3bc53596b2900a6818",
+    "results/minimal.efi": "b67512255dff9b5d4fa54b5f13a2a86c9823a8d444e1dd09ce19e5a6e58e93b8",
+    "results/minimal.txt": "aaf5f173968125a13a7ee7abc6c2f037f56d049bd7cc4fe1c9f8b6e31c2432b0",
+    "results/must-reject.txt": "8d229d49e28021213de292588f63a70cc411daae715c75d05889cfc547b4b57f",
+    "results/mutated.efi": "d6d4ad350e1d05a7858db74f78538b103b9b729fd649ee5ee75e8d632e250c34",
+    "results/mutated.elf": "75a63a773bd515f4e876e6c1f98b56d9df5ccab5222e3a48f1e54be16e8aa952",
+    "snapshot/BaseTools/Source/C/GenFw/Elf32Convert.c": "9d6576d43d5af506a17ce1e3c5b1c6b8f9f34f8f16c4904dbf3bb61c1b7fbd90",
+    "verification.log": "4a0ec5ef1fb60fdaf0fdd728a8709843f32deaee9de40c0baa1ab13ac95347de"
+  }
+}

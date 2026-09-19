@@ -1,0 +1,55 @@
++ make -C BaseTools/Source/C HOST_ARCH=X64 CC=/usr/bin/gcc CXX=/usr/bin/g++ GenFw-clean
+make: Entering directory '/home/nakan/projectmain/edk2-mips-p0-shallow/BaseTools/Source/C'
+make -C GenFw clean
+make[1]: Entering directory '/home/nakan/projectmain/edk2-mips-p0-shallow/BaseTools/Source/C/GenFw'
+/usr/bin/python3 ../Makefiles/GnuMakeUtils.py rm GenFw.o ElfConvert.o Elf32Convert.o Elf64Convert.o  GenFw.d ElfConvert.d Elf32Convert.d Elf64Convert.d
+make[1]: Leaving directory '/home/nakan/projectmain/edk2-mips-p0-shallow/BaseTools/Source/C/GenFw'
+make: Leaving directory '/home/nakan/projectmain/edk2-mips-p0-shallow/BaseTools/Source/C'
++ make -C BaseTools/Source/C HOST_ARCH=X64 CC=/usr/bin/gcc CXX=/usr/bin/g++ GenFw
+make: Entering directory '/home/nakan/projectmain/edk2-mips-p0-shallow/BaseTools/Source/C'
+make -C Common
+make[1]: Entering directory '/home/nakan/projectmain/edk2-mips-p0-shallow/BaseTools/Source/C/Common'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/nakan/projectmain/edk2-mips-p0-shallow/BaseTools/Source/C/Common'
+make -C GenFw
+make[1]: Entering directory '/home/nakan/projectmain/edk2-mips-p0-shallow/BaseTools/Source/C/GenFw'
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  GenFw.c -o GenFw.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  ElfConvert.c -o ElfConvert.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  Elf32Convert.c -o Elf32Convert.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  Elf64Convert.c -o Elf64Convert.o
+/usr/bin/gcc -o ../bin/GenFw  GenFw.o ElfConvert.o Elf32Convert.o Elf64Convert.o -L../libs -lCommon -luuid
+make[1]: Leaving directory '/home/nakan/projectmain/edk2-mips-p0-shallow/BaseTools/Source/C/GenFw'
+make: Leaving directory '/home/nakan/projectmain/edk2-mips-p0-shallow/BaseTools/Source/C'
++ /home/nakan/projectmain/edk2-mips-p0-shallow/BaseTools/Source/C/bin/GenFw --version
+GenFw Version 0.2 Developer Build based on Revision: Unknown 
++ /home/nakan/projectmain/docs/knowledge/evidence/mips-pe-20260920-030858/qemu-mipsel --version
+qemu-mipsel version 11.1.1
+Copyright (c) 2003-2026 Fabrice Bellard and the QEMU Project developers
++ /home/nakan/toolchains/openwrt-toolchain-25.12.5-ramips-mt7621_gcc-14.3.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-14.3.0_musl/bin/mipsel-openwrt-linux-musl-gcc --version
+mipsel-openwrt-linux-musl-gcc.bin (OpenWrt GCC 14.3.0 r33051-f5dae5ece4) 14.3.0
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
++ /home/nakan/projectmain/edk2-mips-p0-shallow/BaseTools/Source/C/bin/GenFw -e UEFI_APPLICATION -o /home/nakan/projectmain/docs/knowledge/evidence/mips-pe-20260920-030858/results/minimal.efi /home/nakan/projectmain/docs/knowledge/evidence/mips-pe-20260920-030858/accepted.elf
+PASS: PE32 headers, entry, instructions, empty relocation directory
++ /home/nakan/toolchains/openwrt-toolchain-25.12.5-ramips-mt7621_gcc-14.3.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-14.3.0_musl/bin/mipsel-openwrt-linux-musl-gcc -EL -march=mips32r2 -mabi=32 -msoft-float -mno-mips16 -mno-micromips -O2 -Wall -Wextra -Werror -static /home/nakan/projectmain/docs/knowledge/evidence/mips-pe-20260920-030858/loader.c -o /home/nakan/projectmain/docs/knowledge/evidence/mips-pe-20260920-030858/results/loader
++ /home/nakan/projectmain/docs/knowledge/evidence/mips-pe-20260920-030858/qemu-mipsel /home/nakan/projectmain/docs/knowledge/evidence/mips-pe-20260920-030858/results/loader /home/nakan/projectmain/docs/knowledge/evidence/mips-pe-20260920-030858/results/minimal.efi
+Loaded base=0x2b2ad000 entry=0x2b2ad220 return=0
+PASS: exact-fixture PE mapped and executed (Linux user mode)
+GenFw: ERROR 3000: Unsupported
+  MIPS input differs from the exact no-relocation fixture.
+GenFw: ERROR 3000: Invalid
+  Unable to convert /home/nakan/projectmain/docs/knowledge/evidence/mips-pe-20260920-030858/original.elf from ELF to PE/COFF.
+
+PASS: rejected; exit 2
+GenFw: ERROR 3000: Unsupported
+  MIPS input differs from the exact no-relocation fixture.
+GenFw: ERROR 3000: Invalid
+  Unable to convert /home/nakan/projectmain/docs/knowledge/evidence/mips-pe-20260920-030858/results/mutated.elf from ELF to PE/COFF.
+
+PASS: rejected; exit 2
+FAIL: only the exact return-zero instructions are allowed
+
+PASS: rejected; exit 1
+ALL CHECKS PASS
