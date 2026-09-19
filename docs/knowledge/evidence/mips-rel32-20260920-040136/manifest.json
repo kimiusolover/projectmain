@@ -1,0 +1,28 @@
+{
+  "head": "debbfa2ede69e231b9199cce1de7657049e0873c",
+  "verification_exit": 0,
+  "scope": "exact-fixture R_MIPS_32 conversion and two-base Linux user-mode pointer test",
+  "sha256": {
+    "README.md": "18f634e792e6590648c0d16fea20914ee43b9295a91492084831402cf3b85243",
+    "genfw.patch": "8f63a4df6b1850f1c957bf0a2fa86116f18e1a7a620ed36aada745f30823639d",
+    "git-status.txt": "1d47b42717fe50334c5c50e5f6b15c1e35b0ed9067cd6a56e2a2e9cac17beeda",
+    "input.S": "9cb852905bc8f35e10fbf40de793d816e9c9cc0e97787ebecf35c1439ceb66aa",
+    "input.elf": "a79b75050ee0f1cb9750e5c215b7cd517d2b1f2d10531a9d147dde1009205bdd",
+    "loader.c": "21ecf0b0f62c9a4a187d9cf1c2aed63a583eac76f8668c347e83e82117baa616",
+    "observed.efi": "0ea71968b12702c0fa0e32518bb40b4c6ce797209c0cad4d6eff6de669cbac34",
+    "prepare-rel32-gate.py": "a97471ae469ff5b51dbf259d93eadf944a9909111feeb6cc2ab5af6001243fd9",
+    "replay.py": "4007561afb54de74f3a89d90ac77ab5f7151970bfb558fb615cf27498775362b",
+    "results/invalid-missing.efi": "5b3a339b99bd19bb0e6a43aec379494f39e4286c5f1dc6eda1b8efefdeadc3a4",
+    "results/invalid-target.efi": "200fac58c920f31fad0e48d24e386bcadf49adafb117a5587848efaf0406dd2d",
+    "results/invalid-type.efi": "e71c84dc6a9aad024481fcba55d0409a2229174b05dc5c9951d4ebb580c2b0c4",
+    "results/invalid.elf": "275915ff42b87a3d66e685b273761174d46bb746aecdef4aa31916a80387e9dd",
+    "results/loader": "0aa625edfacdffe9464a5bb29fb753ea1e9451b715adfd6c8ea81403f93d5868",
+    "results/minimal.efi": "b67512255dff9b5d4fa54b5f13a2a86c9823a8d444e1dd09ce19e5a6e58e93b8",
+    "results/minimal.txt": "aaf5f173968125a13a7ee7abc6c2f037f56d049bd7cc4fe1c9f8b6e31c2432b0",
+    "results/must-reject.txt": "8d229d49e28021213de292588f63a70cc411daae715c75d05889cfc547b4b57f",
+    "results/rel32.efi": "80fe4c29e53f7fc5bc8ac24eb6153218a4f08cd987d78f2d89fa0466126fe5d0",
+    "results/rel32.txt": "b4fd1fb56910d43067d7b320cc585c5010474979ba7e9353e55a9a6b4888e135",
+    "snapshot/BaseTools/Source/C/GenFw/Elf32Convert.c": "5532a888c5502d93e9e42c723450e7f99af1f37d141f0b2bff6468dfe1d4a3e4",
+    "verification.log": "f12c5a714ba2c66f8239c6b9425122052bb378f3c17bb20f9dc5392709b150d3"
+  }
+}

@@ -1,0 +1,11 @@
+ M BaseTools/Conf/tools_def.template
+ M BaseTools/Source/C/BrotliCompress/brotli
+ M BaseTools/Source/C/GenFw/Elf32Convert.c
+ M BaseTools/Source/Python/Common/DataType.py
+ M MdePkg/MdePkg.dec
+?? -.o
+?? BaseTools/Source/C/GenFw/Elf32Convert.c.before-exact-fixture
+?? BaseTools/Source/C/GenFw/Elf32Convert.c.before-machine-gate
+?? BaseTools/Source/C/GenFw/Elf32Convert.c.before-rel32-fixture
+?? MdePkg/Include/Mips/
+?? MipsProbePkg/
