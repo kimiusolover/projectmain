@@ -1,0 +1,20 @@
+make: Entering directory '/tmp/mips-hilo-genfw/BaseTools/Source/C'
+make -C GenFw clean
+make[1]: Entering directory '/tmp/mips-hilo-genfw/BaseTools/Source/C/GenFw'
+/usr/bin/python3 ../Makefiles/GnuMakeUtils.py rm GenFw.o ElfConvert.o Elf32Convert.o Elf64Convert.o  GenFw.d ElfConvert.d Elf32Convert.d Elf64Convert.d
+make[1]: Leaving directory '/tmp/mips-hilo-genfw/BaseTools/Source/C/GenFw'
+make: Leaving directory '/tmp/mips-hilo-genfw/BaseTools/Source/C'
+make: Entering directory '/tmp/mips-hilo-genfw/BaseTools/Source/C'
+make -C Common
+make[1]: Entering directory '/tmp/mips-hilo-genfw/BaseTools/Source/C/Common'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/tmp/mips-hilo-genfw/BaseTools/Source/C/Common'
+make -C GenFw
+make[1]: Entering directory '/tmp/mips-hilo-genfw/BaseTools/Source/C/GenFw'
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  GenFw.c -o GenFw.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  ElfConvert.c -o ElfConvert.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  Elf32Convert.c -o Elf32Convert.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  Elf64Convert.c -o Elf64Convert.o
+/usr/bin/gcc -o ../bin/GenFw  GenFw.o ElfConvert.o Elf32Convert.o Elf64Convert.o -L../libs -lCommon -luuid
+make[1]: Leaving directory '/tmp/mips-hilo-genfw/BaseTools/Source/C/GenFw'
+make: Leaving directory '/tmp/mips-hilo-genfw/BaseTools/Source/C'

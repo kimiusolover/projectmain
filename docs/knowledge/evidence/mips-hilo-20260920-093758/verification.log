@@ -1,0 +1,184 @@
+PASS: saved evidence hashes
++ /home/nakan/toolchains/openwrt-toolchain-25.12.5-ramips-mt7621_gcc-14.3.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-14.3.0_musl/bin/mipsel-openwrt-linux-musl-gcc --version
+mipsel-openwrt-linux-musl-gcc.bin (OpenWrt GCC 14.3.0 r33051-f5dae5ece4) 14.3.0
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
++ /tmp/mips-hilo-20260920-093758/tools/qemu-mipsel --version
+qemu-mipsel version 11.1.1
+Copyright (c) 2003-2026 Fabrice Bellard and the QEMU Project developers
++ make -C /tmp/mips-hilo-replay-htore4ri/build/BaseTools/Source/C HOST_ARCH=X64 CC=/usr/bin/gcc CXX=/usr/bin/g++ GenFw
+make: Entering directory '/tmp/mips-hilo-replay-htore4ri/build/BaseTools/Source/C'
+/usr/bin/python3 ./Makefiles/GnuMakeUtils.py md ./libs
+make -C Common
+make[1]: Entering directory '/tmp/mips-hilo-replay-htore4ri/build/BaseTools/Source/C/Common'
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  BasePeCoff.c -o BasePeCoff.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  BinderFuncs.c -o BinderFuncs.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  CommonLib.c -o CommonLib.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  Crc32.c -o Crc32.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  Decompress.c -o Decompress.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  EfiCompress.c -o EfiCompress.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  EfiUtilityMsgs.c -o EfiUtilityMsgs.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  FirmwareVolumeBuffer.c -o FirmwareVolumeBuffer.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  FvLib.c -o FvLib.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  MemoryFile.c -o MemoryFile.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  MyAlloc.c -o MyAlloc.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  OsPath.c -o OsPath.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  ParseGuidedSectionTools.c -o ParseGuidedSectionTools.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  ParseInf.c -o ParseInf.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  PeCoffLoaderEx.c -o PeCoffLoaderEx.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  SimpleFileParsing.c -o SimpleFileParsing.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  StringFuncs.c -o StringFuncs.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  TianoCompress.c -o TianoCompress.o
+ar crs ../libs/libCommon.a BasePeCoff.o BinderFuncs.o CommonLib.o Crc32.o Decompress.o EfiCompress.o EfiUtilityMsgs.o FirmwareVolumeBuffer.o FvLib.o MemoryFile.o MyAlloc.o OsPath.o ParseGuidedSectionTools.o ParseInf.o PeCoffLoaderEx.o SimpleFileParsing.o StringFuncs.o TianoCompress.o
+make[1]: Leaving directory '/tmp/mips-hilo-replay-htore4ri/build/BaseTools/Source/C/Common'
+/usr/bin/python3 ./Makefiles/GnuMakeUtils.py md ./bin
+make -C GenFw
+make[1]: Entering directory '/tmp/mips-hilo-replay-htore4ri/build/BaseTools/Source/C/GenFw'
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  GenFw.c -o GenFw.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  ElfConvert.c -o ElfConvert.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  Elf32Convert.c -o Elf32Convert.o
+/usr/bin/gcc  -c  -I .. -I ../Include/Common -I ../Include/ -I ../Include/IndustryStandard -I ../Common/ -I .. -I . -I ../../../../MdePkg/Include/X64/ -I ../../../../MdePkg/Include -MD -fshort-wchar -fno-strict-aliasing -fwrapv -fno-delete-null-pointer-checks -Wall -Werror -Wno-deprecated-declarations -Wno-stringop-truncation -Wno-restrict -Wno-unused-result -nostdlib -g -O2  Elf64Convert.c -o Elf64Convert.o
+/usr/bin/gcc -o ../bin/GenFw  GenFw.o ElfConvert.o Elf32Convert.o Elf64Convert.o -L../libs -lCommon -luuid
+make[1]: Leaving directory '/tmp/mips-hilo-replay-htore4ri/build/BaseTools/Source/C/GenFw'
+make: Leaving directory '/tmp/mips-hilo-replay-htore4ri/build/BaseTools/Source/C'
++ /home/nakan/toolchains/openwrt-toolchain-25.12.5-ramips-mt7621_gcc-14.3.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-14.3.0_musl/bin/mipsel-openwrt-linux-musl-gcc -EL -march=mips32r2 -mabi=32 -msoft-float -mno-mips16 -mno-micromips -mno-abicalls -fno-pic -fno-pie -G0 -nostdlib -static -no-pie -Wl,-e,MinimalEntry,--emit-relocs,--build-id=none /tmp/mips-hilo-20260920-093758/inputs/mips-hilo.S -o /tmp/mips-hilo-replay-htore4ri/results/mips-hilo.elf
++ /home/nakan/toolchains/openwrt-toolchain-25.12.5-ramips-mt7621_gcc-14.3.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-14.3.0_musl/bin/mipsel-openwrt-linux-musl-readelf -h -r -A /tmp/mips-hilo-replay-htore4ri/results/mips-hilo.elf
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           MIPS R3000
+  Version:                           0x1
+  Entry point address:               0x4000f0
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          748 (bytes into file)
+  Flags:                             0x70001001, noreorder, o32, mips32r2
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         4
+  Size of section headers:           40 (bytes)
+  Number of section headers:         12
+  Section header string table index: 11
+
+Relocation section '.rel.text' at offset 0x27c contains 2 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+004000f0  00001005 R_MIPS_HI16       00410100   ProbeValue
+004000f4  00001006 R_MIPS_LO16       00410100   ProbeValue
+Attribute Section: gnu
+File Attributes
+  Tag_GNU_MIPS_ABI_FP: Soft float
+
+MIPS ABI Flags Version: 0
+
+ISA: MIPS32r2
+GPR size: 32
+CPR1 size: 0
+CPR2 size: 0
+FP ABI: Soft float
+ISA Extension: None
+ASEs:
+	None
+FLAGS 1: 00000001
+FLAGS 2: 00000000
++ /home/nakan/toolchains/openwrt-toolchain-25.12.5-ramips-mt7621_gcc-14.3.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-14.3.0_musl/bin/mipsel-openwrt-linux-musl-objdump -dr /tmp/mips-hilo-replay-htore4ri/results/mips-hilo.elf
+
+/tmp/mips-hilo-replay-htore4ri/results/mips-hilo.elf:     file format elf32-tradlittlemips
+
+
+Disassembly of section .text:
+
+004000f0 <MinimalEntry>:
+  4000f0:	3c080041 	lui	t0,0x41
+			4000f0: R_MIPS_HI16	ProbeValue
+  4000f4:	8d020100 	lw	v0,256(t0)
+			4000f4: R_MIPS_LO16	ProbeValue
+  4000f8:	03e00008 	jr	ra
+  4000fc:	00000000 	nop
++ /home/nakan/toolchains/openwrt-toolchain-25.12.5-ramips-mt7621_gcc-14.3.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-14.3.0_musl/bin/mipsel-openwrt-linux-musl-gcc -EL -march=mips32r2 -mabi=32 -msoft-float -mno-mips16 -mno-micromips -mno-abicalls -fno-pic -fno-pie -G0 -nostdlib -static -no-pie -Wl,-e,MinimalEntry,--emit-relocs,--build-id=none -Wl,-Tdata=0x00418000 /tmp/mips-hilo-20260920-093758/inputs/mips-hilo.S -o /tmp/mips-hilo-replay-htore4ri/results/mips-hilo-8000.elf
++ /home/nakan/toolchains/openwrt-toolchain-25.12.5-ramips-mt7621_gcc-14.3.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-14.3.0_musl/bin/mipsel-openwrt-linux-musl-readelf -h -r -A /tmp/mips-hilo-replay-htore4ri/results/mips-hilo-8000.elf
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           MIPS R3000
+  Version:                           0x1
+  Entry point address:               0x4000f0
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          33260 (bytes into file)
+  Flags:                             0x70001001, noreorder, o32, mips32r2
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         4
+  Size of section headers:           40 (bytes)
+  Number of section headers:         12
+  Section header string table index: 11
+
+Relocation section '.rel.text' at offset 0x817c contains 2 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+004000f0  00001005 R_MIPS_HI16       00418000   ProbeValue
+004000f4  00001006 R_MIPS_LO16       00418000   ProbeValue
+Attribute Section: gnu
+File Attributes
+  Tag_GNU_MIPS_ABI_FP: Soft float
+
+MIPS ABI Flags Version: 0
+
+ISA: MIPS32r2
+GPR size: 32
+CPR1 size: 0
+CPR2 size: 0
+FP ABI: Soft float
+ISA Extension: None
+ASEs:
+	None
+FLAGS 1: 00000001
+FLAGS 2: 00000000
++ /home/nakan/toolchains/openwrt-toolchain-25.12.5-ramips-mt7621_gcc-14.3.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-14.3.0_musl/bin/mipsel-openwrt-linux-musl-objdump -dr /tmp/mips-hilo-replay-htore4ri/results/mips-hilo-8000.elf
+
+/tmp/mips-hilo-replay-htore4ri/results/mips-hilo-8000.elf:     file format elf32-tradlittlemips
+
+
+Disassembly of section .text:
+
+004000f0 <MinimalEntry>:
+  4000f0:	3c080042 	lui	t0,0x42
+			4000f0: R_MIPS_HI16	ProbeValue
+  4000f4:	8d028000 	lw	v0,-32768(t0)
+			4000f4: R_MIPS_LO16	ProbeValue
+  4000f8:	03e00008 	jr	ra
+  4000fc:	00000000 	nop
++ python3 /tmp/mips-hilo-20260920-093758/check-conversion.py
+PASS mips-hilo HIGHADJ/LOW, 3 simulated bases
+PASS modified input rejected
+PASS mips-hilo-8000 HIGHADJ/LOW, 3 simulated bases
+PASS modified input rejected
+PASS existing fixture Minimal
+PASS existing fixture Rel32
++ /home/nakan/toolchains/openwrt-toolchain-25.12.5-ramips-mt7621_gcc-14.3.0_musl.Linux-x86_64/toolchain-mipsel_24kc_gcc-14.3.0_musl/bin/mipsel-openwrt-linux-musl-gcc -EL -march=mips32r2 -mabi=32 -msoft-float -mno-mips16 -mno-micromips -O2 -Wall -Wextra -Werror -static /tmp/mips-hilo-20260920-093758/loader-hilo.c -o /tmp/mips-hilo-replay-htore4ri/results/loader-hilo
++ /tmp/mips-hilo-20260920-093758/tools/qemu-mipsel /tmp/mips-hilo-replay-htore4ri/results/loader-hilo /tmp/mips-hilo-replay-htore4ri/results/mips-hilo.efi
+base=0x2b2b0000 pointer=0x2b2b0240 value=0x12345678 return=0x12345678
+base=0x2b2c8000 pointer=0x2b2c8240 value=0x12345678 return=0x12345678
+PASS: HIGHADJ + LOW; MIPS code returned 0x12345678 at two bases across signed LOW boundary
++ /tmp/mips-hilo-20260920-093758/tools/qemu-mipsel /tmp/mips-hilo-replay-htore4ri/results/loader-hilo /tmp/mips-hilo-replay-htore4ri/results/mips-hilo-8000.efi
+base=0x2b2b0000 pointer=0x2b2b0240 value=0x12345678 return=0x12345678
+base=0x2b2c8000 pointer=0x2b2c8240 value=0x12345678 return=0x12345678
+PASS: HIGHADJ + LOW; MIPS code returned 0x12345678 at two bases across signed LOW boundary
++ python3 /tmp/mips-hilo-20260920-093758/check-loader.py
+base=0x2b2b0000 pointer=0x2b2b0240 value=0x12345678 return=0x12345678
+base=0x2b2c8000 pointer=0x2b2c8240 value=0x12345678 return=0x12345678
+PASS: HIGHADJ + LOW; MIPS code returned 0x12345678 at two bases across signed LOW boundary
+PASS rejected type
+PASS rejected payload
+PASS rejected missing_low
+PASS rejected high_target
+PASS: replay complete (exact fixtures; Linux user-mode QEMU only)

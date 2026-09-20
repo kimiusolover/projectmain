@@ -1,0 +1,13 @@
++a3abcbee0d945e51dddeec81e647ffe0cde182c2 BaseTools/Source/C/BrotliCompress/brotli (go/brotli/v1.1.1-rc0-269-ga3abcbe)
+ 0bebf8b8c7f07abe3571ded48a11aa907a1ffb20 CryptoPkg/Library/MbedTlsLib/mbedtls ()
+-8cf17aaeb4599f8af87fefd810b5b5fee90fe69e CryptoPkg/Library/OpensslLib/openssl
+-e230f474b87134e8c6c85b630084c612057f253e MdeModulePkg/Library/BrotliCustomDecompressLib/brotli
+-4ef89209a239c1aea328cf13c05a2807e5c146d1 MdeModulePkg/Universal/RegularExpressionDxe/oniguruma
+-cfff805481bdea27f900c32698171286542b8d3c MdePkg/Library/BaseFdtLib/libfdt
+ 370b5944c046bab043dd8b133727b2135af7747a MdePkg/Library/MipiSysTLib/mipisyst (v1.1+edk2)
+-e9ebfa7e77a6bee77df44e096b100e7131044059 RedfishPkg/Library/JsonLib/jansson
+-f55cf6d48ec69b4ac60a63903e9c6a2cb0fd155d SecurityPkg/DeviceSecurity/SpdmLib/libspdm
+-bc29a21d44b01396223c152a4834e52318591770 TcgTpmPkg/Library/TpmLib/TPM
+-1cc9cde3448cdd2e000886a26acf1caac2db7cf1 UnitTestFrameworkPkg/Library/CmockaLib/cmocka
+-86add13493e5c881d7e4ba77fb91c1f57752b3a4 UnitTestFrameworkPkg/Library/GoogleTestLib/googletest
+-83d4e1ebef3588fae48b69a7352cc21801cb70bc UnitTestFrameworkPkg/Library/SubhookLib/subhook

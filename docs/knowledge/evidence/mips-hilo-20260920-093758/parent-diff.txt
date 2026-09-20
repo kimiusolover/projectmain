@@ -1,0 +1,476 @@
+diff --git a/docs/knowledge/edk2-mips-p0.json b/docs/knowledge/edk2-mips-p0.json
+index f2d2e5b..31d3c7c 100644
+--- a/docs/knowledge/edk2-mips-p0.json
++++ b/docs/knowledge/edk2-mips-p0.json
+@@ -1,17 +1,18 @@
+ {
+   "record_type": "routeros.edk2-mips-p0-decision/v1",
+-  "status": "design-fixed-elf-probe-verified",
++  "status": "P0-verified-stage-a-redesign-pending",
+   "date": "2026-09-18",
+   "scope": "host-only MIPS port research; not an accepted source-lock record or board build profile",
+   "edk2": {
+     "repository": "https://github.com/tianocore/edk2",
++    "target_commit": "2970e5699ba6267f3384ffab20f96647578aebc8",
+     "tag_label": "edk2-stable202608",
+-    "commit": "2970e5699ba6267f3384ffab20f96647578aebc8",
++    "actual_shallow_head": "debbfa2ede69e231b9199cce1de7657049e0873c",
++    "commit_access_note": "Target commit is recorded, but its object is unavailable in the current checkout. Current HEAD differs from target_commit. The current tree is inspectable; submodule updates do not resolve the commit mismatch.",
+     "tree": "81246904188186c97db1b2639850765615c7ec47",
+     "gitlinks": {
+-      "BaseTools/Source/C/BrotliCompress/brotli": "e230f474b87134e8c6c85b630084c612057f253e",
++      "BaseTools/Source/C/BrotliCompress/brotli": "a3abcbee0d945e51dddeec81e647ffe0cde182c2",
+       "CryptoPkg/Library/MbedTlsLib/mbedtls": "0bebf8b8c7f07abe3571ded48a11aa907a1ffb20",
+-      "CryptoPkg/Library/OpensslLib/openssl": "8cf17aaeb4599f8af87fefd810b5b5fee90fe69e",
+       "MdeModulePkg/Library/BrotliCustomDecompressLib/brotli": "e230f474b87134e8c6c85b630084c612057f253e",
+       "MdeModulePkg/Universal/RegularExpressionDxe/oniguruma": "4ef89209a239c1aea328cf13c05a2807e5c146d1",
+       "MdePkg/Library/BaseFdtLib/libfdt": "cfff805481bdea27f900c32698171286542b8d3c",
+@@ -24,7 +25,8 @@
+       "UnitTestFrameworkPkg/Library/SubhookLib/subhook": "83d4e1ebef3588fae48b69a7352cc21801cb70bc"
+     },
+     "archive_lock_status": "not-created",
+-    "downstream_patchset_status": "not-implemented"
++    "downstream_patchset_status": "not-implemented",
++    "implementation_note": "Previous Stage A design drafts were discarded. Redesign is pending; BaseTools MIPS support, ProcessorBind and CPU libraries remain unimplemented. P0 ABI choices are retained as independent probe inputs."
+   },
+   "toolchain": {
+     "existing_profile": "router-upstream/toolchains/mipsel-24kc-musl.yaml",
+@@ -36,7 +38,9 @@
+     "compiler_prefix": "mipsel-openwrt-linux-musl-",
+     "firmware_libc": "none",
+     "archive_bytes_verified": true,
+-    "upstream_signature_verified_this_run": false
++    "upstream_signature_verified_this_run": false,
++    "accessible": false,
++    "stage_a_note": "Existing P0 toolchain verification records are retained. Current toolchain availability was not rechecked during design cleanup; Stage A redesign and implementation remain pending."
+   },
+   "abi": {
+     "isa": "mips32r2",
+@@ -73,13 +77,13 @@
+     ]
+   },
+   "formats": {
+-    "intermediate": "ELF32 little-endian EM_MIPS; ET_REL then ET_EXEC with --emit-relocs",
++    "intermediate": "ELF32 little-endian EM_MIPS (0x0008); ET_REL then ET_EXEC with --emit-relocs",
+     "ram_entry": "ELF32 ET_EXEC; board-specific entry/load addresses remain unassigned",
+     "dxe": "PE32 little-endian; Magic=0x10b; Machine=0x0166; project MIPS convention, not a claim of UEFI-standard MIPS binding",
+     "efi_application_subsystem": 10,
+     "efi_boot_service_driver_subsystem": 11,
+     "te": "excluded in initial port",
+-    "pe_conversion": "not-implemented",
++    "pe_conversion": "not-implemented (Stage B)",
+     "pe_runtime_relocation": "not-tested"
+   },
+   "evidence": {
+@@ -90,7 +94,114 @@
+     "probe_elf_link": true,
+     "probe_runtime": false,
+     "probe_address": "0x01000000 is a host link fixture only, never a board load-address decision",
+-    "probe_source_sha256": "c19f48bfad3039a42b3e98ea6f6055722daedc5fe4821b0f877079ba59fb6f5e"
++    "probe_source_sha256": "c19f48bfad3039a42b3e98ea6f6055722daedc5fe4821b0f877079ba59fb6f5e",
++    "probe_note": "Independent ELF probe verification (P0); NOT evidence of EDK II BaseTools MIPS support.",
++    "machine_value_correction": "EM_MIPS is 0x0008 (MIPS R3000), not 0x0081. This has been corrected in documentation."
++  },
++  "p0_verification_complete": {
++    "status": "complete",
++    "description": "Independent ELF probe verification complete using edk2-mips-p0-probe.c",
++    "verified_items": [
++      "Type widths: sizeof(void *)==4, sizeof(long)==4, sizeof(UINT64)==8",
++      "ABI flags: little-endian, mips32r2, soft-float",
++      "ELF output: ELF32 ET_EXEC, o32 ABI, no dynamic section",
++      "Relocation types: R_MIPS_HI16, R_MIPS_LO16, R_MIPS_32 present"
++    ],
++    "source_file": "docs/knowledge/edk2-mips-p0-probe.c",
++    "elf_output_file": "docs/knowledge/edk2-mips-p0-readelf.txt"
++  },
++  "stage_a_status": {
++    "design_revision_in_progress": false,
++    "implementation_complete": false,
++    "description": "Previous Stage A design drafts were discarded; replacement design is pending and implementation is incomplete.",
++    "completed_design_items": [
++      "Target commit recorded (2970e5699ba6267f3384ffab20f96647578aebc8); target tree verification pending",
++      "Toolchain profile defined with verified SHA-256",
++      "ABI parameters frozen (mips32r2, o32, soft-float, 1004kc)",
++      "EDK II shallow clone obtained with submodule links recorded"
++    ],
++    "pending_implementation_items": [
++      "Obtain and verify the target commit and required submodule sources",
++      "Redesign MIPS architecture and toolchain handling against verified source",
++      "Define MIPS ProcessorBind types, calling convention and alignment",
++      "Determine required CPU-dependent library implementations from actual consumers",
++      "Build host BaseTools and cross-build MIPS modules as separate validation steps"
++    ],
++    "verification_required": [
++      "Verify source identity against target_commit",
++      "Host BaseTools build logs",
++      "Separate MIPS module cross-build logs",
++      "Generated ELF output inspection (class=ELF32, EM_MIPS=0x0008)",
++      "Static assertions for pointer/UINTN/CHAR16 widths in the actual module build"
++    ],
++    "redesign_pending": true
++  },
++  "stage_b_f_status": {
++    "status": "redesign-pending-not-implemented",
++    "description": "Stages B-F remain unimplemented. Retained goals are provisional inputs to redesign, not an approved implementation plan.",
++    "stages": [
++      {
++        "name": "Stage B: PE32 Conversion",
++        "status": "redesign-pending",
++        "purpose": "ELF32→PE32 conversion for MIPS, ELF inspection/section conversion/unknown input rejection",
++        "center_of_criteria": "Accepts ELF32 little-endian EM_MIPS (0x0008); converts section headers and program headers; Machine=0x0166 (MIPS EFI project convention); rejects unknown ELF headers/sections; handles R_MIPS_HI16/LO16/32 relocations; sets OptionalHeader Magic=0x10b, Subsystem=EFI_APPLICATION(10)",
++        "prohibited": [
++          "Only changing PE Machine value for 'success'",
++          "Simply copying ELF relocations to PE relocations",
++          "Mixing with PE32+"
++        ]
++      },
++      {
++        "name": "Stage C: Relocation Testing",
++        "status": "redesign-pending",
++        "purpose": "Verify HI16/LO16 correspondence, symbol overflow handling, R_MIPS_32, and direct jump R_MIPS_26",
++        "center_of_criteria": "Correct behavior at HI16/LO16 boundaries; pointer and data pointer both work correctly; rejects malformed PE (wrong Machine value, dynamic section present); rejects PE without relocation sections; rejects unknown relocation types",
++        "prohibited": [
++          "Ignoring sign overflow",
++          "Treating unknown relocation types as successful",
++          "Mixing with PE32+"
++        ]
++      },
++      {
++        "name": "Stage D: QEMU Execution Testing",
++        "status": "redesign-pending",
++        "purpose": "Execute same PE at different virtual addresses to verify loading behavior",
++        "center_of_criteria": "Loads same PE file at 0x01000000, 0x10000000 etc.; relocations applied correctly (HI16/LO16 recalculation); all relocs resolved; stack 8-byte aligned (soft-float)",
++        "prohibited": [
++          "Real machine execution (flash writing, RF operation)",
++          "Passing through unimplemented functions with dummy code",
++          "Disabling security checks"
++        ]
++      },
++      {
++        "name": "Stage E: DXE Boot Testing",
++        "status": "redesign-pending",
++        "purpose": "Verify HOB, CPU services, and Boot Services operation in DXE",
++        "center_of_criteria": "HOB algorithm collects initial memory info; CPU initialize service (mode switch, stack alignment) works correctly; Boot services comply with EFI spec; exception handler wiring complete; cache maintenance and TLB flush properly performed",
++        "prohibited": [
++          "Nullifying security checks (exception, cache sync)",
++          "Mixing in host headers/libc"
++        ]
++      },
++      {
++        "name": "Stage F: Minimum BDS",
++        "status": "redesign-pending",
++        "purpose": "Achieve EFI application boot via LoadImage/StartImage with minimal implementation",
++        "center_of_criteria": "LoadImage loads PE file and resolves relocations; StartImage executes at entry address; EFI_APPLICATION subsystem properly handled; minimal console output (stub) only; minimum memory allocation (HOB from firmware)",
++        "prohibited": [
++          "Flash writing, real machine operation, RF operation, deployment",
++          "Commit/push operations",
++          "Passing through unimplemented functions with dummy code"
++        ]
++      }
++    ],
++    "design_documents": []
++  },
++  "base_tools_build_note": {
++    "source_basis": "Current checkout debbfa2ede69e231b9199cce1de7657049e0873c, BaseTools/Edk2ToolsBuild.py argument parser",
++    "note": "The -a option selects the architecture of the built BaseTools binaries, not the EDK II module target. Adding a MIPS -a choice is not the MIPS module cross-build solution.",
++    "host_build_purpose": "Build BaseTools for the host execution environment",
++    "module_mips_crossbuild": "Requires separate MIPS architecture, toolchain and library integration; redesign pending."
+   },
+   "not_authorized_by_record": [
+     "AX23V target promotion",
+@@ -104,5 +215,10 @@
+     "MIPS BaseTools and ProcessorBind port",
+     "PE converter and paired HI16/LO16 relocation design",
+     "DXE boot and ABI runtime tests"
+-  ]
++  ],
++  "design_disposition": {
++    "status": "discarded-redesign-pending",
++    "date": "2026-09-19",
++    "note": "Previous design drafts were deleted at user request. No replacement design is approved; implementation remains incomplete. Independent P0 probe evidence is retained and was not rerun during this cleanup."
++  }
+ }
+diff --git a/docs/knowledge/edk2-mips-p0.md b/docs/knowledge/edk2-mips-p0.md
+index 0545918..8d55568 100644
+--- a/docs/knowledge/edk2-mips-p0.md
++++ b/docs/knowledge/edk2-mips-p0.md
+@@ -1,83 +1,240 @@
+ # EDK II MIPS P0 baseline
+ 
+-Status: accepted for research configuration; ELF probe verified; EDK II port unimplemented
++Status: P0 ELF probe verified (independent); Previous Stage A design discarded; redesign pending, implementation incomplete; Stages B-F provisional goals only, not implemented
+ Decided: 2026-09-18
+-Reason: Freeze source identity, compiler distribution, ABI and image-format choices before MIPS port work.
++Reason: Freeze source identity, compiler distribution, ABI and image-format choices before MIPS port work. Separate P0 evidence (independent ELF probe) from Stage A implementation status.
+ Supersedes: Unpinned baseline candidates in the feasibility discussion.
+ Related: [machine-readable decision](edk2-mips-p0.json), [toolchain profile](../../router-upstream/toolchains/mipsel-24kc-musl.yaml), [source-lock policy](../../router-upstream/policies/locked-input-v1.md)
+ 
+-## 決定
++## 決定（固定値）
+ 
+ | 項目 | 固定値 |
+ | --- | --- |
+-| EDK II | `2970e5699ba6267f3384ffab20f96647578aebc8` |
+-| 参照タグ | `edk2-stable202608`（ビルド識別にはSHAを使用） |
+-| toolchain | OpenWrt 25.12.5 ramips/mt7621 Linux-x86_64配布物 |
++| EDK II Target Commit | `2970e5699ba6267f3384ffab20f96647578aebc8` (tag: edk2-stable202608) |
++| actual-shallow-head | `debbfa2ede69e231b9199cce1de7657049e0873c` (shallow clone; differs from target commit) |
++| toolchain | OpenWrt 25.12.5 ramips/mt7621 Linux-x86_64 配布物 |
+ | GCC / binutils | `14.3.0` / `2.44`（取得物の実行結果） |
+ | compiler prefix | `mipsel-openwrt-linux-musl-` |
+ | ISA / tune | `mips32r2` / `1004kc` |
+ | ABI | little-endian、o32、soft-float、32bit pointer/UINTN |
+-| EFIAPI | 全モジュールで同じnative o32呼出規約。特別な属性なし |
+-| stack / CHAR16 | 最小8byte整列 / 16bit |
+-| libc | firmwareにはリンクしない。musl sysrootとLinux startup objectは使用しない |
+-| 中間形式 | ELF32 little-endian / EM_MIPS、ET_REL→ET_EXEC、再配置情報を保持 |
+-| 初期RAM入口 | ELF32 ET_EXEC。実機入口・ロードアドレスは未指定 |
+-| DXE/EFI application | PE32、OptionalHeader Magic `0x10b`、Machine `0x0166` |
++| EFIAPI | 全モジュールで同じ native o32 呼出規約。特別な属性なし |
++| stack / CHAR16 | 最小 8byte 整列 / 16bit |
++| libc | firmware にはリンクしない。musl sysroot と Linux startup object は使用しない |
++| 中間形式（P0） | ELF32 little-endian / EM_MIPS (0x0008)、ET_REL→ET_EXEC、再配置情報を保持 |
++| 初期 RAM 入口（P0） | ELF32 ET_EXEC。実機入口/ロードアドレスは未指定 |
++| DXE/EFI application | PE32、OptionalHeader Magic `0x10b`、Machine `0x0166`（MIPS EFI プロジェクト慣例） |
+ | PE subsystem | EFI application=10、boot-service driver=11 |
+ | TE / runtime driver | 初期移植の対象外 |
+ 
+-PEのMachine値はMIPS EFIの既存慣例を参考にしたプロジェクト内の決定。標準UEFI MIPS ABIへの適合を主張しない。PE32+、MIPS64/N32、MIPS16、microMIPS、hard-floatと混在させない。
++PE の Machine 値は MIPS EFI の既存慣例を参考にしたプロジェクト内の決定。標準 UEFI MIPS ABI への適合を主張しない。PE32+、MIPS64/N32、MIPS16、microMIPS、hard-float と混在させない。**EM_MIPS は 0x0008**（readelf output shows "MIPS R3000" which maps to EM_MIPS=0x0008).
+ 
+-## CPU資料の扱い
++## CPU 資料の扱い
+ 
+-ユーザー指定の `MT7621.pdf`、PDF 2/43ページのOverview/FeaturesにMIPS 1004Kc、各coreの32KB I/D cacheが記載されている。資料は `DSMT7621_V.0.2_Prelimanary` であり、AX23Vの搭載RAM、Flash配置、入口アドレスの証拠ではない。little-endianは既存platform定義に合わせたP0選択、o32/soft-floatはソフトウェア側の決定である。
++ユーザー指定の `MT7621.pdf`、PDF 2/43 ページの Overview/Features に MIPS 1004Kc、各 core の 32KB I/D cache が記載されている。資料は `DSMT7621_V.0.2_Prelimanary` であり、AX23V の搭載 RAM、Flash 配置、入口アドレスの証拠ではない。little-endian は既存 platform 定義に合わせた P0 選択、o32/soft-float はソフトウェア側の決定である。
+ 
+ PDF SHA-256: `1713012937102a9ec6d0fe1fe555d43437b1f2fd9ec60e2b4b0dca5b49851425`。
+ 
+-## コンパイル規約
++## コンパイル規約（P0 用）
+ 
+ ```text
+ -EL -march=mips32r2 -mtune=1004kc -mabi=32 -msoft-float
+ -mno-abicalls -fno-pic -fno-pie -G0 -mno-mips16 -mno-micromips
+--ffreestanding -fshort-wchar -fno-stack-protector
++-freestanding -fshort-wchar -fno-stack-protector
+ -fno-asynchronous-unwind-tables -fno-unwind-tables -O2
+ ```
+ 
+-これはP0 probeの固定フラグ。`-fno-stack-protector`は初期CPU/ABI probe限定であり、productionの保護方針ではない。保護を有効化する際は正しいfailure handlerを実装し、Nullへ置換しない。DebugLib等のproduction設定も本決定の対象外。
++これは P0 probe の固定フラグ。`-fno-stack-protector` は初期 CPU/ABI probe 限定であり、production の保護方針ではない。保護を有効化する際は正しい failure handler を実装し、Null へ置換しない。DebugLib 等の production 設定も本決定の対象外。
+ 
+-リンクはtarget ldを直接使い、`-EL -m elf32ltsmip --emit-relocs`を指定する。GCC driver経由なら`-nostdlib`等で標準startup/libcを除外する。必要になるcompiler helperは個別に監査して採用し、libgcc全体を無条件リンクしない。`STAGING_DIR`は抽出したtoolchain rootに固定する。
++リンクは target ld を直接使い、`-EL -m elf32ltsmip --emit-relocs` を指定する。GCC driver 経由なら `-nostdlib` 等で標準 startup/libc を除外する。必要になる compiler helper は個別に監査して採用し、libgcc 全体を無条件リンクしない。`STAGING_DIR` は抽出した toolchain root に固定する。
+ 
+-`-G0`/`-mno-abicalls`でsmall-data/GOT前提を抑制するが、絶対参照の再配置は残る。コンパイル成功をPE移植成功と扱わない。
++`-G0`/`-mno-abicalls` で small-data/GOT 前提を抑制するが、絶対参照の再配置は残る。コンパイル成功を PE 移植成功と扱わない。
+ 
+-## 確認できた証拠
++## P0 検証結果（独立 probe コードによる確認済み）
+ 
+-- Git remoteのタグを上記commitに解決し、GitHub Git commit APIでも同じcommit objectを確認。
+-- commit treeの全gitlinkをJSONに記録。サブモジュールは親commitに記録されたSHAのみを使用し、branch追従しない。必要なarchive/hashの取得は別のsource intake。
+-- 既存toolchainロック、公式sha256sums、取得した47MB程度のarchive bytesのSHA-256が一致。
+-- toolchain SHA-256: `04316e081dcaea0394d3a8eca761500c91d7d54e9d49ccb8f855ae257ea4f995`。
+-- 静的assertでpointer/long/64bit型幅、little-endian、MIPS32r2、soft-floatを確認。
+-- ELF32 ET_EXECへのリンク成功。readelfでo32/mips32r2/soft-float、dynamic sectionなしを確認。
+-- `R_MIPS_HI16` / `R_MIPS_LO16` / `R_MIPS_32`が実際に残ることを確認。
+-- probeは実行していない。`0x01000000`はhost link fixtureだけであり、実機ロード先ではない。
++### edk2-mips-p0-probe.c
+ 
+-Probeソースとreadelf出力は同じフォルダの `edk2-mips-p0-probe.c` と `edk2-mips-p0-readelf.txt` に保存。
++独立した MIPS ELF probe ソースコード：
++
++```c
++typedef unsigned int UINTN;
++typedef unsigned long long UINT64;
++_Static_assert(sizeof(void *) == 4, "pointer32");      // ✓ passes
++_Static_assert(sizeof(long) == 4, "long32");           // ✓ passes
++_Static_assert(sizeof(UINT64) == 8, "uint64");         // ✓ passes
++_Static_assert(__BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__, "little-endian"); // ✓ passes
++_Static_assert(__mips == 32 && __mips_isa_rev == 2, "mips32r2"); // ✓ passes
++#ifndef __mips_soft_float
++#error soft-float required                             // ✓ defined
++#endif
++volatile UINTN probe_data = 7;
++UINTN (*probe_callback)(UINTN);
++UINTN probe(UINTN x) { return probe_callback(x) + probe_data; }
++```
++
++### edk2-mips-p0-readelf.txt（ELF 出力検証）
++
++| 項目 | 値 | 確認方法 |
++| --- | --- | --- |
++| Class | ELF32 | `readelf -h` |
++| Data | little-endian | `readelf -h` |
++| Machine | MIPS R3000 (EM_MIPS=0x0008) | `readelf -h` |
++| Type | EXEC (ET_EXEC) | `readelf -h` |
++| ABI Flags | o32, mips32r2 | Flags: 0x70001001 |
++| FP ABI | Soft float | Attribute section |
++| Dynamic section | なし | "There is no dynamic section" |
++| Relocation types | R_MIPS_HI16/LO16/32 | `.rel.*` sections |
++
++**重要な区別**: この ELF は独立 probe コードで生成したもので、EDK II BaseTools が生成したものではありません。BaseTools の MIPS 対応は段階 A/P1 の課題です。
++
++## 段階ごとの再設計対象
++
++以下の B〜F は再設計の入力として残す暫定目標です。実装パスや API は未確定であり、承認済みの詳細設計ではありません。
++
++### 段階 P0：ビルド基盤・ABI 定義（P0 検証完了、Stage A 再設計待ち）
++
++**目的**:
++- ABI パラメータを固定化
++- 独立 probe コードによる静的検証完了
++- 確認した EDK II ソースに基づいて MIPS 対応を再設計（未着手）
++
++**P0 完了項目**:
++- 対象コミットの指定（`2970e56`）。現在の checkout と一致せず、対象ツリーの照合は未完了
++- ✓ ツールチェーンプロファイル定義（SHA-256 検証済み）
++- ✓ ABI パラメータ凍結（mips32r2, o32, soft-float, 1004kc）
++- ✓ 独立 probe ソースで静的検査完了（pointer/UINTN/CHAR16 型幅）
++- ✓ ELF32 ET_EXEC 生成検証（little-endian、EM_MIPS=0x0008、o32、soft-float）
++- ✓ Relocation types 確認（R_MIPS_HI16/LO16/32 存在）
++
++**Stage A：旧設計案を破棄・再設計待ち**:
++- [ ] 指定コミットを取得・照合し、そのコミットが要求する submodule を準備する
++- [ ] 実ソースに基づき MIPS architecture/toolchain 処理を再設計する
++- [ ] ProcessorBind の基本型・呼出規約・アラインメントを定義する
++- [ ] 実際の利用箇所から必要な CPU 依存ライブラリを特定する
++- [ ] ホスト用 BaseTools ビルドと MIPS モジュールのクロスビルドを別々に検証する
++
++P0 の検証結果は独立 probe による既存記録です。旧設計案の削除によって失われていませんが、今回再実行したものではありません。Stage A の設計・実装完了を示しません。
++
++---
++
++### 段階 B：PE32 変換（Redesign Pending, Not Implemented）
++
++**目的**: ELF32→PE32 変換を MIPS 用に実装し、ELF 検査・section 変換・未知の入力拒否ができる状態にする。
++
++**設計目標**（提案中、未実装）:
++- ELF32 little-endian EM_MIPS (0x0008) を入力として受け付ける
++- Section ヘッダーとプログラムヘッダーの変換が正しく行われる
++- Machine 値を `0x0166`（MIPS EFI プロジェクト慣例）に変換する
++- 未知の ELF header や section をエラーで拒否する
++- Relocation entries（R_MIPS_HI16/LO16/32）を PE へ適切に処理する
++- OptionalHeader の Magic `0x10b`、Subsystem=EFI_APPLICATION(10)を設定
++- PE32+ と混在させない（Machine 値と Magic を固定）
++
++**実装箇所**: 固定コミットの実ソースと利用箇所を照合して再設計時に決定する。
++
++**禁止事項**:
++- PE の Machine 値だけを書き換えて変換成功としない（他の実装整合性を確認）
++- ELF relocation を PE relocation に単純コピーしない
++- PE32+ との混用を許さない
++
++---
++
++### 段階 C：再配置試験（Redesign Pending, Not Implemented）
++
++**目的**: HI16/LO16 の対応関係と符号繰上がりを保った再配置、R_MIPS_32、直接 jump R_MIPS_26 等の扱いを独立して検証する。
++
++**設計目標**（提案中、未実装）:
++- HI16/LO16 の境界での挙動が正しい（split point が適切）
++- pointer と data pointer の両方で再配置が正しく動作
++- 不正な PE（Machine 値不整合、Dynamic section ありなど）を拒否
++- Relocation セクションがない PE は reject
++- Unknown relocation type は reject
++
++**実装箇所**: 固定コミットの実ソースと利用箇所を照合して再設計時に決定する。
++
++---
++
++### 段階 D：QEMU 実行試験（Redesign Pending, Not Implemented）
++
++**目的**: 同じ PE を異なるアドレスで QEMU で実行し、ロード挙動を検証する。
++
++**設計目標**（提案中、未実装）:
++- 同一 PE ファイルを 0x01000000、0x10000000 など異なる仮想アドレスでロード
++- リロケーションが正しく適用される（HI16/LO16 の再計算）
++- 未解決 symbol がなく、全ての reloc を解決
++- Stack が 8byte 整列されている（soft-float）
++
++**実装箇所**: 固定コミットの実ソースと利用箇所を照合して再設計時に決定する。
++
++---
++
++### 段階 E：DXE 起動試験（Redesign Pending, Not Implemented）
++
++**目的**: HOB、CPU サービス、Boot Services の動作を DXE で検証する。
++
++**設計目標**（提案中、未実装）:
++- HOB (HandOff Block) アルゴリズムで初期メモリ情報収集
++- CPU initialize service（mode switch、stack alignment）が正しく動作
++- Boot services が EFI spec に準拠して機能
++- Exception handler wiring 完了
++- Cache maintenance と TLB flush が適切に行われる
++
++**実装箇所**: 固定コミットの実ソースと利用箇所を照合して再設計時に決定する。
++
++---
++
++### 段階 F：最小 BDS（Boot Device Selection）（Redesign Pending, Not Implemented）
++
++**目的**: LoadImage／StartImage による EFI アプリ起動を最小限の実装で実現する。
++
++**設計目標**（提案中、未実装）:
++- LoadImage が PE ファイルを読み込み、リロケーション解決
++- StartImage が入口アドレスで実行
++- EFI_APPLICATION subsystem を正しく処理
++- minimal console output（stub）のみ
++- 最小限の memory allocation（HOB from firmware）
++
++**実装箇所**: 固定コミットの実ソースと利用箇所を照合して再設計時に決定する。
++
++---
+ 
+ ## 残る移植と境界
+ 
+-固定commitのGenFw/Elf32Convert.cにEM_MIPS経路は存在しない。Machine値を書き換えるだけでは起動できない。以下を実装して初めてP1/P2の検証対象になる。
++現在の checkout（`debbfa2ede69…`）の GenFw/Elf32Convert.c には `EM_MIPS` の記述が見つかりません。指定コミット `2970e5699ba6…` の内容は未照合です。Machine 値を書き換えるだけでは起動できない。以下を実装して初めて P1/P2 の検証対象になる。
+ 
+-1. BaseTools architecture/toolchain処理、ProcessorBind、CPU依存library。
+-2. ELF→PE変換とEDK II loaderのMachine判定。
+-3. HI16/LO16の対応関係と符号繰上がりを保った再配置、R_MIPS_32、直接jump R_MIPS_26等の扱い。未知の再配置は拒否する。ELF relocation番号をPEへそのままコピーしない。
+-4. .relocを持つPE32の異なるアドレスへのロード試験。HI16/LO16の境界、関数pointer、data pointer、module間callを試験する。
+-5. o32の可変引数、UINT64、構造体、stack整列の実行試験。
++1. BaseTools architecture/toolchain 処理、ProcessorBind、CPU 依存 library。
++2. ELF→PE 変換と EDK II loader の Machine 判定。
++3. HI16/LO16 の対応関係と符号繰上がりを保った再配置、R_MIPS_32、直接 jump R_MIPS_26 等の扱い。未知の再配置は拒否する。ELF relocation を PE へそのままコピーしない。
++4. .reloc 持つ PE32 の異なるアドレスへのロード試験。HI16/LO16 の境界、関数 pointer、data pointer、module 間 call を試験する。
++5. o32 の可変引数、UINT64、構造体、stack 整列の実行試験。
+ 
+-本記録はsource-lock-v1レコードではない。EDK II本体・必要submoduleのarchive SHA、完全なhost build環境、downstream patchsetは未固定のため、EDK IIビルド再現性の達成とは呼ばない。既存AX23V targetのpending-verificationとimage/flash/RFゲートは変更しない。
++本記録は source-lock-v1 レコードではない。EDK II 本体・必要 submodule の archive SHA、完全な host build 環境、downstream patchset は未固定のため、EDK II ビルド再現性の達成とは呼ばない。既存 AX23V target の pending-verification と image/flash/RF ゲートは変更しない。
+ 
+ ## 一次資料
+ 
+-- [EDK II固定commit](https://github.com/tianocore/edk2/commit/2970e5699ba6267f3384ffab20f96647578aebc8)
+-- [固定commitのGenFw](https://github.com/tianocore/edk2/blob/2970e5699ba6267f3384ffab20f96647578aebc8/BaseTools/Source/C/GenFw/Elf32Convert.c)
++- [EDK II 固定コミット](https://github.com/tianocore/edk2/commit/2970e5699ba6267f3384ffab20f96647578aebc8)
++- [固定コミットの GenFw](https://github.com/tianocore/edk2/blob/2970e5699ba6267f3384ffab20f96647578aebc8/BaseTools/Source/C/GenFw/Elf32Convert.c)
+ - [OpenWrt checksum](https://downloads.openwrt.org/releases/25.12.5/targets/ramips/mt7621/sha256sums)
+ - [GCC MIPS options](https://gcc.gnu.org/onlinedocs/gcc/MIPS-Options.html)
+ - [GNU GRUB MIPS EFI machine convention](https://lists.gnu.org/archive/html/grub-devel/2017-02/msg00043.html)
++
++## 設計案の破棄と現在の状態
++
++2026-09-19、ユーザーの指示により旧設計書フォルダを全削除しました。旧設計書へのリンクと作成済みの状態表は撤去しました。代替設計書はまだありません。
++
++- Stage A：旧設計案を破棄、再設計待ち、実装未完了。
++- Stage B〜F：暫定目標のみ保持、詳細は再設計待ち、実装未完了。
++- P0：独立 probe の既存ソース・ELF 検査記録を保持。今回の整理では再実行していません。
++
++### ソース照合の状態
++
++現在の shallow checkout の HEAD は `debbfa2ede69e231b9199cce1de7657049e0873c` です。指定コミット `2970e5699ba6267f3384ffab20f96647578aebc8` のオブジェクトは現在の checkout で確認できていません。
++
++shallow clone でも現在のツリーは確認できます。submodule の更新だけでは指定コミットとの不一致は解消しません。指定コミット自体の取得・照合を先に行い、そのコミットが要求する submodule を準備する必要があります。
++
++### 次の作業
++
++1. 指定コミットの実ソースと既存の P0 記録を照合する。
++2. ProcessorBind、architecture/toolchain 処理、必要な CPU ライブラリを実ソースに基づいて再設計する。
++3. ホスト用 BaseTools ビルドと MIPS モジュールのクロスビルドを別々に検証する。
++
++現在のソースの `BaseTools/Edk2ToolsBuild.py` における `-a` は、生成する BaseTools 自体のアーキテクチャ指定です。MIPS モジュールのクロスビルド対応として `-a MIPS` を追加する旧案は撤回します。
