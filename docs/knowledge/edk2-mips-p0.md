@@ -4,7 +4,7 @@ Status: accepted for research configuration; ELF probe verified; EDK II port uni
 Decided: 2026-09-18
 Reason: Freeze source identity, compiler distribution, ABI and image-format choices before MIPS port work.
 Supersedes: Unpinned baseline candidates in the feasibility discussion.
-Related: [machine-readable decision](edk2-mips-p0.json), [toolchain profile](../../router-upstream/toolchains/mipsel-24kc-musl.yaml), [source-lock policy](../../router-upstream/policies/locked-input-v1.md)
+Related: [machine-readable decision](edk2-mips-p0.json), [toolchain profile](../../router-upstream/toolchains/mipsel-24kc-musl.yaml), [source-lock policy](../../router-upstream/policies/locked-input-v1.md), [DECISIONS.md#d-009-router-uefi-platform-architecture-v1](../../DECISIONS.md#d-009-router-uefi-platform-architecture-v1)
 
 ## 決定
 

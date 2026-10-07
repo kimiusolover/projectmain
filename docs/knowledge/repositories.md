@@ -1,7 +1,7 @@
 # Repository Responsibilities
 
 Status: accepted
-Last reviewed: 2026-09-02
+Last reviewed: 2026-10-07
 
 ## Boundary map
 
@@ -46,3 +46,27 @@ Owns recipes and package-level configuration. It consumes source locks from `rou
 Status: accepted
 
 Provides shared CI, release gating, SBOM/provenance, and policy integrations. It holds neither device definitions nor firmware inputs/secrets.
+
+### router-edk2
+
+Status: planned
+Decided: 2026-10-07
+Related: [DECISIONS.md#d-009-router-uefi-platform-architecture-v1](../../DECISIONS.md#d-009-router-uefi-platform-architecture-v1)
+
+Owns:
+- EDK II platform firmware implementation
+- Architecture-specific UEFI support (e.g., X64, AARCH64, MIPS32)
+- SoC/silicon firmware support packages
+- Platform/board firmware packages (e.g., ArcherAX23V1Pkg)
+- Firmware image descriptions and firmware build logic
+- Firmware-specific test suites
+
+Does not own:
+- Canonical device hardware facts (owned by `router-platform`)
+- Physical storage contracts and preservation policies (owned by `router-platform`)
+- Upstream source identity, source locks, and toolchain provenance (owned by `router-upstream`)
+- Linux/rootfs/OS image composition (owned by `router-firmware`)
+- Linux package recipes and runtime packages (owned by `router-packages`)
+- Host-side validation and orchestration CLI (owned by `routerctl`)
+- Regulatory certification evidence (owned by `certificateDB`)
+- Release authorization and shared CI infrastructure (owned by `router-infra`)
