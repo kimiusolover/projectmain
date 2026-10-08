@@ -1,7 +1,7 @@
 # Router OS Project Knowledge Base
 
 Status: accepted
-Last reviewed: 2026-09-08
+Last reviewed: 2026-10-07
 
 This directory is the curated, Markdown-first knowledge base for the Router OS repositories. It is intended for people and local LLM/RAG tools. It is not a firmware source tree, evidence store, or deployment authority.
 
@@ -38,6 +38,7 @@ Build an auditable Router OS ecosystem with reproducible host/CI builds, evidenc
 | `router-upstream` | Immutable source locks, toolchain records, patch/sync metadata | Network fetching during builds, board authorization |
 | `router-packages` | Package recipes and package configuration | Source locks, device facts, image assembly |
 | `router-infra` | Shared CI/release/SBOM/provenance controls | Firmware, device definitions, secrets |
+| `router-edk2` | Planned: EDK II platform firmware implementation, architecture/SoC/board packages, firmware descriptions | Canonical hardware facts, source locks, OS image composition |
 
 Related: [docs/knowledge/repositories.md](docs/knowledge/repositories.md).
 
@@ -61,8 +62,9 @@ Decided: 2026-09-09
 
 The parent repository tracks the five root knowledge documents,
 `docs/knowledge/`, `.gitignore`, and the portable `.routerctl/components.json`
-and `.routerctl/workspace.json` configuration files. Each of the seven component
-repositories keeps its own independent Git history and is ignored by this
+and `.routerctl/workspace.json` configuration files. The project currently has seven existing
+component repositories; D-009 establishes `router-edk2` as a planned eighth component repository.
+Each component repository keeps its own independent Git history and is ignored by this
 parent repository; they are not submodules. Cloning the parent does not fetch
 component repositories or pin their revisions. Obtain the component repositories
 separately when following links into their source trees.

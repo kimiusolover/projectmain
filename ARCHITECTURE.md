@@ -1,7 +1,7 @@
 # Router OS Architecture
 
 Status: accepted
-Last reviewed: 2026-09-02
+Last reviewed: 2026-10-07
 
 ## Trust and build flow
 
@@ -9,13 +9,80 @@ Last reviewed: 2026-09-02
 primary sources / device observations
         -> certificateDB + router-platform (evidence and capability records)
         -> router-upstream (immutable source locks and toolchain records)
-        -> router-packages (recipes and package policy)
-        -> router-firmware (composition, planners, image pipeline)
-        -> routerctl (host validation and orchestration)
-        -> reviewed release path in router-infra
+        ┌─────────────────┴─────────────────┐
+        │                                   │
+        ▼                                   ▼
+ router-edk2 (planned)               router-packages
+ (UEFI firmware implementation)      (recipes and package policy)
+        │                                   │
+        └─────────────────┬─────────────────┘
+                          │
+                          ▼
+                   router-firmware
+                   (composition, planners, image pipeline)
+                          │
+                          ▼
+                      routerctl
+                      (host validation and orchestration)
+                          │
+                          ▼
+                   reviewed release path in router-infra
 ```
 
 Each arrow transfers bounded input, not authorization. A successful build, planner, schema check, or certificate lookup does not authorize flash or RF operation.
+
+## Component responsibilities and firmware flow
+
+Status: accepted
+Decided: 2026-10-07
+Related: [DECISIONS.md#d-009-router-uefi-platform-architecture-v1](DECISIONS.md#d-009-router-uefi-platform-architecture-v1)
+
+Firmware implementation and OS image composition are separate concerns:
+- **`router-platform`**: Owns hardware facts, device identity, physical topology, pinouts, MTD/NVMEM boundaries, MAC/calibration locations, and partition preservation policies.
+- **`router-upstream`**: Owns immutable upstream source identity, source locks, EDK II source revisions, archives, SHA-256 hashes, and toolchain provenance.
+- **`router-edk2`**: Planned repository owning EDK II firmware implementation, architecture support, silicon/SoC packages, board/platform packages, and firmware image descriptions.
+- **`router-packages`**: Owns Linux runtime package recipes and package configurations.
+- **`router-firmware`**: Owns final OS/image composition, kernel/rootfs/package selection, planners, and image pipeline assembly.
+
+### Firmware logical layering
+
+`router-edk2` uses a strict logical layering contract:
+
+```text
+Common UEFI
+   ↓
+Architecture (X64, AARCH64, MIPS32)
+   ↓
+SoC / Silicon (e.g., MT7621)
+   ↓
+Platform / Board (e.g., TP-Link Archer AX23 v1)
+   ↓
+Firmware Image
+```
+
+Board-specific physical facts (e.g. SPI-NOR size, radio partition, calibration offset) must never be embedded in the SoC/Silicon layer. Physical facts remain canonically owned by `router-platform`.
+
+### x86/x86_64 boot chain architecture
+
+```text
+EDK II UEFI firmware
+        ↓
+EFI System Partition (FAT32)
+        ↓
+systemd-boot (UEFI Boot Manager)
+        ↓
+UKI (Unified Kernel Image)
+        ↓
+Linux
+        ↓
+Btrfs root filesystem
+```
+
+- **EDK II**: UEFI platform firmware implementation.
+- **systemd-boot**: UEFI boot manager operating on the ESP.
+- **UKI**: Unified Kernel Image combining Linux kernel, initrd, and command line into a single EFI executable.
+- **ESP**: FAT32 filesystem holding boot artifacts.
+- **Btrfs**: Operating system root filesystem policy. Btrfs is an OS filesystem choice and does not override target-specific physical storage contracts owned by `router-platform`.
 
 ## Execution environments
 
